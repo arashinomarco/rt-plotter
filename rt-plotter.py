@@ -2,6 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle
 
+def dmsdeg(d, m, s):
+    return d + m / 60 + s / 3600
+
 def rtplotter(func, val, sf=20):
     val_rad = np.radians(val)
     
@@ -67,4 +70,9 @@ def rtplotter(func, val, sf=20):
     print(f'Sine = {sin_str}, Cosine = {cos_str}, Tangent = {tan_str}')
     print(f'Secant = {sec_str}, Cosecant = {csc_str}, Cotangent = {cot_str}')
 
-rtplotter('sin', 15)
+dms = (15, 0, 0)
+val = dmsdeg(*dms)
+rtplotter('sin', val)
+
+if __name__=="__rtplotter__":
+    rtplotter()
